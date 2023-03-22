@@ -34,7 +34,10 @@ def read_pdb(protein_ID: str, chain: str):
 def align(a_arr_1, a_arr_2):
     super_imposer = Bio.PDB.Superimposer()
     super_imposer.set_atoms(a_arr_1, a_arr_2)
-    return super_imposer.rms
+    print(super_imposer.rms)
+    io = Bio.PDB.PDBIO()
+    io.set_structure(sample_structure)
+    io.save("1UBQ_aligned.pdb")
 
 
 if __name__ == '__main__':
